@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BioBox Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Welcome to BioBox Dashboard</h2>
+
+<button onclick="logout()">Logout</button>
+<h3>Profile Picture</h3>
+
+<input type="file" id="profileImage">
+
+<button onclick="uploadProfileImage()">
+Upload Picture
+</button>
+
+<hr>
+<h3>Your Bio</h3>
+
+<textarea id="bioText" rows="4" cols="40"></textarea>
+<br><br>
+
+<button onclick="updateBio()">Save Bio</button>
+
+<hr>
+
+<h3>Upload File</h3>
+<input type="file" id="fileInput">
+<button onclick="uploadFile()">Upload</button>
+
+<h3>Your Files</h3>
+<ul id="fileList"></ul>
+
+<script src="script.js"></script>
+</body>
+</html>

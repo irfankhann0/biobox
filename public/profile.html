@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BioBox Profile</title>
+</head>
+<body>
+<img id="profilePic" width="150">
+<h2 id="username"></h2>
+<p id="bio"></p>
+
+<h3>Files</h3>
+
+<ul id="files"></ul>
+
+<script>
+
+const username = window.location.pathname.split("/").pop();
+
+fetch(`/api/files/user/${username}`)
+.then(res => res.json())
+.then(data => {
+    document.getElementById("profilePic").src =
+    "/" + data.profileImage;
+
+ document.getElementById("username").innerText = data.username;
+
+ document.getElementById("bio").innerText = data.bio;
+
+ const list = document.getElementById("files");
+
+ data.files.forEach(file => {
+
+   const li = document.createElement("li");
+
+   const link = document.createElement("a");
+
+   link.href = "/" + file.filepath;
+
+   link.textContent = file.filename;
+
+   li.appendChild(link);
+
+   list.appendChild(li);
+
+ });
+
+});
+
+</script>
+
+</body>
+</html>
