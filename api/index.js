@@ -35,4 +35,10 @@ app.use("/uploads", express.static("uploads"));
 app.get("/u/:username", (req, res) => {
   res.sendFile(path.join(__dirname, "public/profile.html"));
 });
+if (process.env.NODE_ENV !== "production") {
+  const PORT = 5000;
+  app.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
+  });
+}
 module.exports = app;
