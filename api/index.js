@@ -31,7 +31,7 @@ app.get("/api/profile", authMiddleware, (req, res) => {
 });
 app.use("/api/files", fileRoutes);
 app.use(express.static(path.join(__dirname, "../public")));
-app.use("/uploads", express.static("/tmp/uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 app.get("/u/:username", (req, res) => {
   res.sendFile(path.join(__dirname, "public/profile.html"));
 });
